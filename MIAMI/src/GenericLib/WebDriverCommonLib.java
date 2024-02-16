@@ -2,10 +2,17 @@ package GenericLib;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.MultiPartEmail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -84,7 +91,7 @@ public class WebDriverCommonLib {
 		jse.executeScript("window.scrollBy("+x+","+yaxis+")");
 	}
 	
-	public void mouseHover(WebElement path) {
+	public void mouseOver(WebElement path) {
 		
 		Actions ac = new Actions(BaseTest.driver);
 		ac.moveToElement(path).perform();
@@ -132,5 +139,46 @@ public class WebDriverCommonLib {
 //    	
 //    	
 //    }
+    
+    public void Emailreports() throws EmailException
+	{
+    	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    	LocalDateTime localDate = LocalDateTime.now();
+    	
+		EmailAttachment attachment=new EmailAttachment();
+		attachment.setPath("C:\\Users\\PARDHASARADHI KALIKI\\git\\Miami\\MIAMI\\test-output\\emailable-report.html");
+		attachment.setDisposition(EmailAttachment.ATTACHMENT);
+		attachment.setDescription("Test Execution Report");
+		dateFormat.format(localDate);
+		attachment.setName(dateFormat.format(localDate));
+		
+		//email message creation
+		System.out.println("email");
+		//Email email = new SimpleEmail();
+		MultiPartEmail email=new MultiPartEmail();
+		System.out.println("working email");
+		email.setHostName("smtp.gmail.com");
+		email.setSmtpPort(465);
+		email.setAuthenticator(new DefaultAuthenticator("vidyasagar1122@gmail.com", "qptfwpwesnolgvbb"));
+		email.setSSLOnConnect(true);
+		email.setFrom("vidyasagar1122@gmail.com");
+		email.setSubject("Automation Test Execution Report");
+		email.setMsg("Automation Test Execution Report");
+		email.addTo("vidyasagar@ntc-in.com");
+		email.attach(attachment);
+		email.send();
+		System.out.println("Email sent");
+		
+	}
+    
+    public void closeprintwindow() throws AWTException {
+		
+		 Robot r = new Robot();
+
+		    r.keyPress(KeyEvent.VK_ESCAPE);
+
+		    r.keyRelease(KeyEvent.VK_ESCAPE);
+		    Reporter.log("Print window is closed", true);
+	}
 
 }
