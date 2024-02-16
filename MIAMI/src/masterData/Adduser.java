@@ -14,7 +14,6 @@ public class Adduser extends BaseTest{
 	@FindBy(xpath="//a[@href='/Admin/Admin/AddUser']")private WebElement addUser;
 	@FindBy(xpath="//input[@id='FirstName']")private WebElement firstName;
 	@FindBy(xpath="//input[@id='LastName']")private WebElement lastName;
-	
 	@FindBy(xpath="//input[@id='Mobile']")private WebElement mobile;
 	@FindBy(xpath="//input[@id='EmailId']")private WebElement emailId;
 	@FindBy(xpath="//input[@id='EmployeeId']")private WebElement employeeId;
@@ -91,8 +90,11 @@ public class Adduser extends BaseTest{
 		Thread.sleep(1000);
 		FileLib fl=new FileLib();
 		userSearch.sendKeys(fl.readPropData(PROP_PATH, "FirstName"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		deleteButton.click();
+		Thread.sleep(2000);
+		BaseTest.driver.switchTo().alert().accept();
+		Thread.sleep(5000);
 	}
 	
 
