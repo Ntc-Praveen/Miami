@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Reporter;
+
 import GenericLib.FileLib;
 import GenericLib.BaseTest;
 import GenericLib.WebDriverCommonLib;
@@ -72,14 +74,16 @@ public class Adduser extends BaseTest{
 		Thread.sleep(1000);
 		lastName.sendKeys("Singh");
 		Thread.sleep(1000);
-		mobile.sendKeys("9087676880");
+		mobile.sendKeys(fl.readPropData(PROP_PATH, "MobileNo"));
 		Thread.sleep(1000);
-		emailId.sendKeys("sambu@ntc-in.com");
+		emailId.sendKeys(fl.readPropData(PROP_PATH, "EmailId"));
 		Thread.sleep(1000);
-		employeeId.sendKeys("2909");
+		employeeId.sendKeys(fl.readPropData(PROP_PATH, "EmployeeId"));
 		Thread.sleep(1000);
 		saveButton.click();
 		Thread.sleep(2000);
+		Reporter.log("user saved", true);
+		
 		
 	}
 	public void DeleteUser() throws Throwable 
