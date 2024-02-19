@@ -180,5 +180,7 @@ public class WebDriverCommonLib {
 		    r.keyRelease(KeyEvent.VK_ESCAPE);
 		    Reporter.log("Print window is closed", true);
 	}
+    
+    
 
 }
