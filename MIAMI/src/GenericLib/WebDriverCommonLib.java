@@ -144,27 +144,26 @@ public class WebDriverCommonLib {
 	{
     	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     	LocalDateTime localDate = LocalDateTime.now();
-    	
+    	String currentDate = dateFormat.format(localDate);
 		EmailAttachment attachment=new EmailAttachment();
 		attachment.setPath("C:\\Users\\PARDHASARADHI KALIKI\\git\\Miami\\MIAMI\\test-output\\emailable-report.html");
 		attachment.setDisposition(EmailAttachment.ATTACHMENT);
 		attachment.setDescription("Test Execution Report");
-		dateFormat.format(localDate);
-		attachment.setName(dateFormat.format(localDate));
+		attachment.setName(currentDate + " Report");
 		
 		//email message creation
-		System.out.println("email");
+		System.out.println("Sending email");
 		//Email email = new SimpleEmail();
 		MultiPartEmail email=new MultiPartEmail();
 		System.out.println("working email");
-		email.setHostName("smtp.gmail.com");
-		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator("vidyasagar1122@gmail.com", "qptfwpwesnolgvbb"));
+		email.setHostName("smtp.bizmail.yahoo.com");
+		email.setSmtpPort(587);
+		email.setAuthenticator(new DefaultAuthenticator("pardhasaradhi.kaliki@ntc-in.com", "xgroqebqueizoafq"));
 		email.setSSLOnConnect(true);
-		email.setFrom("vidyasagar1122@gmail.com");
+		email.setFrom("pardhasaradhi.kaliki@ntc-in.com");
 		email.setSubject("Automation Test Execution Report");
 		email.setMsg("Automation Test Execution Report");
-		email.addTo("vidyasagar@ntc-in.com");
+		email.addTo("ntc.pardhu@gmail.com");
 		email.attach(attachment);
 		email.send();
 		System.out.println("Email sent");
@@ -176,11 +175,13 @@ public class WebDriverCommonLib {
 		 Robot r = new Robot();
 
 		    r.keyPress(KeyEvent.VK_ESCAPE);
-
 		    r.keyRelease(KeyEvent.VK_ESCAPE);
 		    Reporter.log("Print window is closed", true);
 	}
     
-    
+    public void SendEmail() {
+    	
+    	
+    }
 
 }
