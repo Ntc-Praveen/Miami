@@ -23,7 +23,11 @@ public class Adduser extends BaseTest{
 	@FindBy(xpath="//select[@selectid='RoleId']")private WebElement userType; 
 	@FindBy(xpath="//input[@type='search']")private WebElement userSearch;
 	@FindBy(xpath="//img[@src='/Images/delete-icon.svg']")private WebElement deleteButton;
+	@FindBy(xpath="//div[@class='swal-button-container'][2]")private WebElement deleteOkbutton; 
 	
+	public WebElement getDeleteOkbutton() {
+		return deleteOkbutton;
+	}
 	public WebElement getLastName() {
 		return lastName;
 	}
@@ -97,8 +101,10 @@ public class Adduser extends BaseTest{
 		Thread.sleep(2000);
 		deleteButton.click();
 		Thread.sleep(2000);
-		BaseTest.driver.switchTo().alert().accept();
+		//BaseTest.driver.switchTo().alert().accept();
 		Thread.sleep(5000);
+		deleteOkbutton.click();
+		Reporter.log("user deleted successfully",true);
 	}
 	
 
