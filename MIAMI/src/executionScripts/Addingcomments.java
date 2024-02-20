@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 
 import GenericLib.BaseTest;
 import logins.AdminLogin;
-import masterData.Comments;
+import masterData.AddComments;
 
-public class Addcomments extends BaseTest {
+public class Addingcomments extends BaseTest {
 	
 	@Test
 	public void Commentadding() throws Throwable
@@ -14,7 +14,7 @@ public class Addcomments extends BaseTest {
 		AdminLogin Al=new AdminLogin();
 		Al.adminLogin();
 		Thread.sleep(3000);
-		Comments C=new Comments();
+		AddComments C=new AddComments();
 		C.Commentadd();
 	}
 	

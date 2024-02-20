@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import GenericLib.BaseTest;
 import logins.AdminLogin;
-import masterData.Comments;
+import masterData.AddComments;
 
 public class Deletecomments extends BaseTest {
 	@Test
@@ -12,7 +12,7 @@ public class Deletecomments extends BaseTest {
 	{
 		AdminLogin Al=new AdminLogin();
 		Al.adminLogin();
-		Comments cm=new Comments();
+		AddComments cm=new AddComments();
 		cm.Deletecomment();
 		
 	}

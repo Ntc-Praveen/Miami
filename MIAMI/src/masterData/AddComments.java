@@ -7,10 +7,10 @@ import org.testng.Reporter;
 
 import GenericLib.BaseTest;
 
-public class Comments extends BaseTest{
+public class AddComments extends BaseTest{
 	
 	@FindBy(xpath="/html/body/main/section/div[1]/div[2]/ul/li[1]/a")private WebElement masterData;
-	@FindBy(xpath="//a[@href='/Addcomments/Addcomments/AddComments']")private WebElement commentPage; 
+	@FindBy(xpath="//a[@href='/Addingcomments/Addingcomments/AddComments']")private WebElement commentPage; 
 	@FindBy(xpath="//input[@id='Addcmnt']")private WebElement commentTextbox;
 	@FindBy(xpath="//input[@value='Save']")private WebElement commentSave;
 	@FindBy(xpath="//input[@type='search']")private WebElement commentSearchBox;
@@ -38,7 +38,7 @@ public class Comments extends BaseTest{
 	public WebElement getCommentSave() {
 		return commentSave;
 	}
-	public Comments()
+	public AddComments()
 	{
 		PageFactory.initElements(BaseTest.driver, this);
 	}

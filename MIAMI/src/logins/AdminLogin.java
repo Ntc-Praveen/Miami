@@ -33,14 +33,15 @@ public class AdminLogin {
 
 	public void adminLogin() throws Throwable {
 		
-		WebDriverCommonLib wlib = new WebDriverCommonLib();
-		FileLib flib = new FileLib();
-		Reporter.log("Execution Started, trying to login as ADMIN User", true);
+//		WebDriverCommonLib wlib = new WebDriverCommonLib();
+//		FileLib flib = new FileLib();
+		
 		email.sendKeys("admin@neumeric2023.onmicrosoft.com");
 		Thread.sleep(2000);
 		password.sendKeys("Neumeric@0602");
 		Thread.sleep(2000);
 		loginButton.click();
-		//wlib.verify(wlib.getPageTitle(), flib.readPropData(PROP_PATH, "loginTitle"), "Login Page");
+		Reporter.log("Logged In as ADMIN User", true);		
+		
 	}
 }
