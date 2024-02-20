@@ -15,8 +15,8 @@ public class loginToApplication extends BaseTest {
 		AdminLogin lgn = new AdminLogin();
 		lgn.adminLogin();
 		
-		WebDriverCommonLib wlib = new WebDriverCommonLib();
-		wlib.Emailreports();
+//		WebDriverCommonLib wlib = new WebDriverCommonLib();
+//		wlib.Emailreports();
 		
 		
 		

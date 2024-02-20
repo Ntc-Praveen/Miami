@@ -12,31 +12,19 @@ import GenericLib.WebDriverCommonLib;
 
 public class Adduser extends BaseTest{
 	
-	@FindBy(xpath="/html/body/main/section/div[1]/div[2]/ul/li[1]/a")private WebElement masterData;
-	@FindBy(xpath="//a[@href='/Admin/Admin/AddUser']")private WebElement addUser;
-	@FindBy(xpath="//input[@id='FirstName']")private WebElement firstName;
-	@FindBy(xpath="//input[@id='LastName']")private WebElement lastName;
-	@FindBy(xpath="//input[@id='Mobile']")private WebElement mobile;
-	@FindBy(xpath="//input[@id='EmailId']")private WebElement emailId;
-	@FindBy(xpath="//input[@id='EmployeeId']")private WebElement employeeId;
-	@FindBy(xpath="//input[@value='Save']")private WebElement saveButton;
-	@FindBy(xpath="//select[@selectid='RoleId']")private WebElement userType; 
-	@FindBy(xpath="//input[@type='search']")private WebElement userSearch;
-	@FindBy(xpath="//img[@src='/Images/delete-icon.svg']")private WebElement deleteButton;
-	@FindBy(xpath="//div[@class='swal-button-container'][2]")private WebElement deleteOkbutton; 
+	@FindBy(xpath="/html/body/main/section/div[1]/div[2]/ul/li[1]/a") private WebElement masterData;
+	@FindBy(xpath="//a[@href='/Admin/Admin/AddUser']") private WebElement addUser;
+	@FindBy(xpath="//input[@id='FirstName']") private WebElement firstName;
+	@FindBy(xpath="//input[@id='LastName']") private WebElement lastName;
+	@FindBy(xpath="//input[@id='Mobile']") private WebElement mobile;
+	@FindBy(xpath="//input[@id='EmailId']") private WebElement emailId;
+	@FindBy(xpath="//input[@id='EmployeeId']") private WebElement employeeId;
+	@FindBy(xpath="//input[@value='Save']") private WebElement saveButton;
+	@FindBy(xpath="//select[@selectid='RoleId']") private WebElement userType; 
+	@FindBy(xpath="//input[@type='search']") private WebElement userSearchfield;
+	@FindBy(xpath="//img[@src='/Images/delete-icon.svg']") private WebElement deleteButton;
+	@FindBy(xpath="//div[@class='swal-button-container'][2]") private WebElement deleteOkbutton; 
 	
-	public WebElement getDeleteOkbutton() {
-		return deleteOkbutton;
-	}
-	public WebElement getLastName() {
-		return lastName;
-	}
-	public WebElement getUserType() {
-		return userType;
-	}
-	public WebElement getSaveButton() {
-		return saveButton;
-	}
 	public WebElement getMasterData() {
 		return masterData;
 	}
@@ -45,6 +33,9 @@ public class Adduser extends BaseTest{
 	}
 	public WebElement getFirstName() {
 		return firstName;
+	}
+	public WebElement getLastName() {
+		return lastName;
 	}
 	public WebElement getMobile() {
 		return mobile;
@@ -55,28 +46,42 @@ public class Adduser extends BaseTest{
 	public WebElement getEmployeeId() {
 		return employeeId;
 	}
+	public WebElement getSaveButton() {
+		return saveButton;
+	}
+	public WebElement getUserType() {
+		return userType;
+	}
+	public WebElement getUserSearchfield() {
+		return userSearchfield;
+	}
+	public WebElement getDeleteButton() {
+		return deleteButton;
+	}
+	public WebElement getDeleteOkbutton() {
+		return deleteOkbutton;
+	}
+	
+	
 	public Adduser()
 	{
 		PageFactory.initElements(BaseTest.driver, this);
 	}
 	
-	public void AddUser() throws  Throwable 
+	WebDriverCommonLib WDC=new WebDriverCommonLib();
+	FileLib fl=new FileLib();
+	
+	public void addUser() throws  Throwable 
 	{
 		masterData.click();
 		Thread.sleep(1000);
 		addUser.click();
 		Thread.sleep(1000);
-		WebDriverCommonLib WDC=new WebDriverCommonLib();
 		WDC.scrollDown();	
 		Thread.sleep(3000);
-		//Select userstypes=new Select(userType);
-		//userstypes.selectByValue("2");
-		Thread.sleep(1000);
-		//firstName.sendKeys("Sambhu");
-		FileLib fl=new FileLib();
 		firstName.sendKeys(fl.readPropData(PROP_PATH, "FirstName"));
 		Thread.sleep(1000);
-		lastName.sendKeys("Singh");
+		lastName.sendKeys("saho");
 		Thread.sleep(1000);
 		mobile.sendKeys(fl.readPropData(PROP_PATH, "MobileNo"));
 		Thread.sleep(1000);
@@ -86,26 +91,24 @@ public class Adduser extends BaseTest{
 		Thread.sleep(1000);
 		saveButton.click();
 		Thread.sleep(2000);
-		Reporter.log("user saved", true);
+		Reporter.log("User saved Successfully", true);
 		
 		
 	}
-	public void DeleteUser() throws Throwable 
+	public void deleteUser() throws Throwable 
 	{
 		masterData.click();
 		Thread.sleep(1000);
 		addUser.click();
 		Thread.sleep(1000);
-		FileLib fl=new FileLib();
-		userSearch.sendKeys(fl.readPropData(PROP_PATH, "FirstName"));
+		userSearchfield.sendKeys(fl.readPropData(PROP_PATH, "FirstName"));
 		Thread.sleep(2000);
 		deleteButton.click();
-		Thread.sleep(2000);
-		//BaseTest.driver.switchTo().alert().accept();
 		Thread.sleep(5000);
 		deleteOkbutton.click();
 		Reporter.log("user deleted successfully",true);
 	}
+	
 	
 
 }
