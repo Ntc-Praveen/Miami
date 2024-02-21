@@ -16,6 +16,8 @@ public class DeletingUser extends BaseTest{
 		Thread.sleep(2000);
 		Adduser Au=new Adduser();
 		Au.deleteUser();
+		Adduser ac=new Adduser();
+		ac.deleteAccessor();	
 		
 	}
 	
