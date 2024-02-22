@@ -6,7 +6,7 @@ import GenericLib.BaseTest;
 import logins.AdminLogin;
 import masterData.Adduser;
 
-public class DeleteUser extends BaseTest{
+public class DeletingUser extends BaseTest{
 	@Test
 	public void UserDlete() throws Throwable
 	{
@@ -15,7 +15,9 @@ public class DeleteUser extends BaseTest{
 		Al.adminLogin();
 		Thread.sleep(2000);
 		Adduser Au=new Adduser();
-		Au.DeleteUser();
+		Au.deleteUser();
+		Adduser ac=new Adduser();
+		ac.deleteAccessor();	
 		
 	}
 	

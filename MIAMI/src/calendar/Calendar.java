@@ -59,7 +59,6 @@ public class Calendar {
     	Thread.sleep(5000);
     	Reporter.log("Dat clicked", true);
     	Thread.sleep(2000);
-    	//WebDriverCommonLib WDCL=new WebDriverCommonLib();
     	WDCL.selectOption(indexSelect, 1);
     	Thread.sleep(2000);
     	WDCL.selectOption(shiftTime, 2);
