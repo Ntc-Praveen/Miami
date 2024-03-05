@@ -5,7 +5,7 @@ import masterData.Adduser;
 
 import org.testng.annotations.Test;
 import GenericLib.BaseTest;
-
+                                                     /*** Written By VidyaSagar ***/
 public class AddingUsers extends BaseTest 
 {
 	
@@ -19,5 +19,9 @@ public class AddingUsers extends BaseTest
 		Adduser s=new Adduser();
 		Thread.sleep(2000);
 		s.addUser();
+		Thread.sleep(5000);
+		Adduser ac=new Adduser();
+		ac.addAccessor();
+		
 	}
 }

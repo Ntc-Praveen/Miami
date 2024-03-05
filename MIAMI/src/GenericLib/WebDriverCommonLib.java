@@ -28,7 +28,6 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -45,13 +44,14 @@ import com.google.common.io.Files;
 
 public class WebDriverCommonLib {
 	
+	
 	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDateTime localDate = LocalDateTime.now();
 	public String currentSysDate = dateFormat.format(localDate);
 	
 	SimpleDateFormat formatter= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Date newDate = new Date();
-	String sysTimeStamp = formatter.format(newDate);
+	public String sysTimeStamp = formatter.format(newDate);
 	
 	public String getPageTitle()
 	{
@@ -154,52 +154,49 @@ public class WebDriverCommonLib {
 		}
     }
     
-    public void closeprintwindow() throws AWTException {
+    public void closeAlertwindow() throws AWTException {
 		
 		 Robot r = new Robot();
 
 		    r.keyPress(KeyEvent.VK_ESCAPE);
 		    r.keyRelease(KeyEvent.VK_ESCAPE);
-		    Reporter.log("Print window is closed", true);
+		    Reporter.log("Alert / Print window is closed", true);
 	}
     
-//    public void fileUpload() 
-//    {
-//    	WebElement fileInput = BaseTest.driver.findElement(By.cssSelector("input[type=file]"));
-//        fileInput.sendKeys(uploadFile.getAbsolutePath());
-//        BaseTest.driver.findElement(By.id("file-submit")).click();
-//    	
-//    	
-//    }
     
-    public void Emailreports() throws EmailException  {
+    public void Emailingreports() throws EmailException  {
     	
 		EmailAttachment attachment=new EmailAttachment();
-		attachment.setPath("C:\\Users\\PARDHASARADHI KALIKI\\git\\Miami\\MIAMI\\test-output\\emailable-report.html");
+		attachment.setPath("./test-output/emailable-report.html");
 		attachment.setDisposition(EmailAttachment.ATTACHMENT);
 		attachment.setDescription("Test Execution Report");
-		attachment.setName(currentSysDate + " Report");
+		attachment.setName("TestNG Report after execution on:" + currentSysDate);
 		
 		//email message creation
 		System.out.println("Sending email");
 		//Email email = new SimpleEmail();
 		MultiPartEmail email=new MultiPartEmail();
-		System.out.println("working email");
 		email.setHostName("smtp.bizmail.yahoo.com");
 		email.setSmtpPort(587);
 		email.setAuthenticator(new DefaultAuthenticator("pardhasaradhi.kaliki@ntc-in.com", "xgroqebqueizoafq"));
 		email.setSSLOnConnect(true);
 		email.setFrom("pardhasaradhi.kaliki@ntc-in.com");
 		email.setSubject("Automation Test Execution Report");
-		email.setMsg("Automation Test Execution Report");
+		email.setMsg("Dear Team,\r\n"
+				+ "This email is to inform you that the Test/suite execution has been started.\r\n"
+				+ "\r\n"
+				+ "This is system generated email. Please Do not reply.\r\n"
+				+ "\r\n"
+				+ "Regards,\r\n"
+				+ "Team NTC QA");
 		email.addTo("ntc.pardhu@gmail.com");
 		email.attach(attachment);
 		email.send();
-		Reporter.log("Email sent successfully", true);
+		Reporter.log("Test Execution Report Email sent successfully", true);
 		
 	}
     
-    public void SendEmail() {
+    public void SendExecutionStartmail() {
         
     	// Sender's email credentials
         String senderEmail = "ntc.pardhu@gmail.com";
@@ -260,11 +257,12 @@ public class WebDriverCommonLib {
             // Send the email
             Transport.send(message);
 
-            System.out.println("Emails sent successfully to all recipients.");
+            Reporter.log("Emails sent successfully to all recipients.", true);
             
 
         } catch (MessagingException e) {
-            System.out.println("Failed to send emails. Error: " + e.getMessage());
+//            System.out.println("Failed to send emails. Error: " + e.getMessage());
+            Reporter.log("Failed to send emails. Error: " + e.getMessage(), true);
         }
     }
     
@@ -311,7 +309,7 @@ public class WebDriverCommonLib {
 
             // Create MimeBodyPart object for the attachment
             MimeBodyPart attachmentPart = new MimeBodyPart();
-            String filePath = "C:\\Users\\PARDHASARADHI KALIKI\\git\\Miami\\MIAMI\\test-output\\emailable-report.html"; // Path to the file to be attached
+            String filePath = "./test-output/emailable-report.html"; // Path to the file to be attached
             attachmentPart.attachFile(filePath);
 
             // Create Multipart object to add both body and attachment
@@ -342,7 +340,7 @@ public class WebDriverCommonLib {
         // Receiver's email addresses (comma-separated)
         String receiverEmails = "pardhu161@gmail.com, kaliki.pardhu@gmail.com, pardhasaradhi.kaliki@ntc-in.com";
         // SMTP server address
-        String smtpHost = "smtp.example.com";
+        String smtpHost = "smtp.gmail.com";
         // SMTP server port
         String smtpPort = "587"; // Use 587 for TLS, 465 for SSL
 
@@ -396,6 +394,63 @@ public class WebDriverCommonLib {
             e.printStackTrace();
             Reporter.log("Failed to send mails", true);
            
+        }
+    	
+    }
+    
+    public void MailingWithApacheLib() {
+    	
+    	// Sender's email credentials
+        String senderEmail = "pardhasaradhi.kaliki@ntc-in.com";
+        String senderPassword = "xgroqebqueizoafq";
+        String[] recipients = {"pardhu161@gmail.com", "ntc.pardhu@gmail.com"};  //, "vidyasagar@ntc-in.com"
+
+        // SMTP server configuration
+        String smtpHost = "smtp.bizmail.yahoo.com";
+        int smtpPort = 587; // TLS Port
+
+        // Create the email attachment
+        EmailAttachment attachment = new EmailAttachment();
+        attachment.setPath("./test-output/emailable-report.html"); // Path to the attachment file
+        attachment.setDisposition(EmailAttachment.ATTACHMENT);
+        attachment.setDescription("Test Report Attachment");
+        attachment.setName("TestNG Report - " + sysTimeStamp);
+
+        // Create the email message
+        MultiPartEmail email = new MultiPartEmail();
+        email.setHostName(smtpHost);
+        email.setSmtpPort(smtpPort);
+        email.setAuthenticator(new DefaultAuthenticator(senderEmail, senderPassword));
+        email.setStartTLSEnabled(true);
+
+        try {
+            email.setFrom(senderEmail);
+            
+            // Add multiple recipients
+            for (String recipient : recipients) {
+                email.addTo(recipient);
+            }
+
+            email.setSubject("Test Automation Report");
+            email.setMsg("Dear Team,\r\n"
+            		+ "This email is to inform you that MSRTC Reg FA suite execution has been finished on " + sysTimeStamp + "\r\n"
+            		+ "\r\n"
+            		+ "This is system generated email. Do not reply.\r\n"
+            		+ "\r\n"
+            		+ "For any queries/support, please Contact Us.\r\n"
+            		+ "\r\n"
+            		+ "Regards,\r\n"
+            		+ "FireFlink");
+
+            // Add the attachment to the email
+            email.attach(attachment);
+
+            // Send the email
+            email.send();
+
+            Reporter.log("Email sent successfully with attachment to team.", true);
+        } catch (EmailException e) {
+            System.out.println("Failed to send email with attachment." + " Error: " + e.getMessage());
         }
     	
     }
