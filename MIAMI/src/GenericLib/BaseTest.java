@@ -26,6 +26,7 @@ public class BaseTest implements IAutoConstants{
 			driver = new ChromeDriver(options);
 			//options.addArguments("--start-maximized");
 			options.addArguments("--remote-allow-origins=*");
+			options.addArguments("--disable - notifications");
 		}
 
 		else if (browser.equalsIgnoreCase("firefox")) {
@@ -39,17 +40,18 @@ public class BaseTest implements IAutoConstants{
 			EdgeOptions options = new EdgeOptions();
 		    driver = new EdgeDriver(options);
 		    //options.addArguments("--start-maximized");
+		    options.addArguments("--remote-allow-origins=*");
 		}
 
 		else {
-			Reporter.log("Enter Proper Browser name", true);
+			Reporter.log("Enter a Proper Browser name", true);
 		}
 
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		String appUrl = fl.readPropData(PROP_PATH, "url");
 		driver.get(appUrl);
 
