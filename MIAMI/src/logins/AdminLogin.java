@@ -44,4 +44,14 @@ public class AdminLogin {
 		Reporter.log("Logged In as ADMIN User", true);		
 		
 	}
-}
+
+	public void Assessor() throws Throwable
+	{
+		email.sendKeys("assessor1@neumeric2023.onmicrosoft.com");
+		Thread.sleep(2000);
+		password.sendKeys("Neumeric@0602");
+		Thread.sleep(2000);
+		loginButton.click();
+		Reporter.log("Logged In as Assessor1 User", true);	
+		}
+	}

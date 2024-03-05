@@ -49,7 +49,7 @@ public class BaseTest implements IAutoConstants{
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		String appUrl = fl.readPropData(PROP_PATH, "url");
 		driver.get(appUrl);
 
@@ -59,10 +59,10 @@ public class BaseTest implements IAutoConstants{
 				fl.readPropData(PROP_PATH, "loginTitle"), "Login Page");
 	}
 
-	@AfterClass(enabled=true)
-	public void closeBrowser() {	
-		driver.quit();
-	}
+//	@AfterClass(enabled=true)
+//	public void closeBrowser() {	
+//		driver.quit();
+//	}
 
 	
 
