@@ -12,6 +12,7 @@ import GenericLib.WebDriverCommonLib;
                                                   /*** Written By VidyaSagar ***/
 public class Adduser extends BaseTest{
 	
+	
 	@FindBy(xpath="/html/body/main/section/div[1]/div[2]/ul/li[1]/a") private WebElement masterData;
 	@FindBy(xpath="//a[@href='/Admin/Admin/AddUser']") private WebElement addUser;
 	@FindBy(xpath="//input[@id='FirstName']") private WebElement firstName;
