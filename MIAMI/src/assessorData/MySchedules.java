@@ -50,13 +50,13 @@ public class MySchedules extends BaseTest{
 	{
 		masterShedule.click();
 		Thread.sleep(2000);
-		System.out.println("Clicked on Master Shedule");
+		System.out.println("Clicked on Master Schedule");
 		allShedule.click();
 		Thread.sleep(2000);
-		System.out.println("Clicked on All Shedule");
+		System.out.println("Clicked on All Schedule");
 		myShedule.click();
 		Thread.sleep(2000);
-		System.out.println("Clicked on My Shedule");
+		System.out.println("Clicked on My Schedule");
 		calanderPrev.click();
 		Thread.sleep(2000);
 		System.out.println("Clicked on Calander Prev");

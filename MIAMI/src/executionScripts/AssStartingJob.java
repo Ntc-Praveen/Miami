@@ -20,7 +20,7 @@ public class AssStartingJob extends BaseTest {
 		Dashboard A=new Dashboard();
 		A.assesorStartJob();
 		A.assesorStartTask();
-		//A.assessorStartAssesemnt();
+		A.assessorStartAssesemnt();
 		A.assessorUnableToCompleteTask();
 		
 

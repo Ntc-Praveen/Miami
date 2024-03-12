@@ -1,6 +1,8 @@
 package assessorData;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -93,7 +95,7 @@ public class Dashboard extends BaseTest{
 		return taskOptions;
 	}
 //	Start Assement Methods
-	public WebElement gettartAssesemnt() {
+	public WebElement getStartAssesemnt() {
 		return startAssesemnt;
 	}
 	public WebElement getlocationPopup() {
@@ -178,25 +180,27 @@ public class Dashboard extends BaseTest{
 		try {
 				startJob.click();
 				Thread.sleep(4000);
-				ComLib.fullPageScreenshot("C:\\Users\\susmi\\git\\Miami\\MIAMI\\Data");
+//				ComLib.fullPageScreenshot("C:\\Users\\susmi\\git\\Miami\\MIAMI\\Data");
 				System.out.println("Clicked on Start Job");
-						}
+				
+		}
 		catch(Exception e){
 			System.out.println("Start job button not available : "+ e);
 		}
 	 		
-//		completedJob.click();
-//		Thread.sleep(2000);
-//		System.out.println("Clicked on Completed Job");
-//		unabletoCompletedJob.click();
-//		Thread.sleep(2000);
-//		System.out.println("Clicked on unabletoCompleted Job");
-//		pendingJob.click();
-//		Thread.sleep(10000);
-//		System.out.println("Clicked on Pending Job");
+		completedJob.click();
+		Thread.sleep(2000);
+		System.out.println("Clicked on Completed Job");
+		unabletoCompletedJob.click();
+		Thread.sleep(2000);
+		System.out.println("Clicked on unabletoCompleted Job");
+		pendingJob.click();
+		Thread.sleep(15000);
+		System.out.println("Clicked on Pending Job");
 	}
 	public void assesorStartTask() throws InterruptedException{
-	
+		
+//		Thread.sleep(5000);
 		taskBar.click();
 		Thread.sleep(2000);
 		System.out.println("Clicked on taskBar Job");
@@ -213,12 +217,20 @@ public class Dashboard extends BaseTest{
 		Thread.sleep(2000);
 		System.out.println("Clicked on taskBar Options");
 //		ComLib.fullPageScreenshot("C:\\Users\\susmi\\git\\Miami\\MIAMI\\Data");
-		
+//--------------------------------------------------------------------------------------
+//		Actions actions=new Actions(driver);
+//		
+//		actions.moveToElement(taskOptions)
+//		.moveToElement(startAssesemnt).keyDown(Keys.CONTROL)
+//		.click().keyUp(Keys.CONTROL).build()
+//		.perform();
+	
+		ComLib.mouseOver(startAssesemnt);
 		
 		startAssesemnt.click();
 		Thread.sleep(2000);
 		System.out.println("Clicked on Start Assesment Click Here ");
-		
+//---------------------------------------------------------------------------------------		
 		locationPopup.click();
 		Thread.sleep(2000);
 		System.out.println("Clicked on Ok Popup");
