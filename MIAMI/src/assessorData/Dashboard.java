@@ -180,12 +180,17 @@ public class Dashboard extends BaseTest{
 		try {
 				startJob.click();
 				Thread.sleep(4000);
+
+				//ComLib.fullPageScreenshot("D:\\Screenshots");
+
 //				ComLib.fullPageScreenshot("C:\\Users\\susmi\\git\\Miami\\MIAMI\\Data");
+
 				System.out.println("Clicked on Start Job");
 				
 		}
 		catch(Exception e){
-			System.out.println("Start job button not available : "+ e);
+			System.out.println("Start job button not available : ");
+			e.printStackTrace();
 		}
 	 		
 		completedJob.click();
