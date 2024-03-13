@@ -61,10 +61,10 @@ public class BaseTest implements IAutoConstants{
 				fl.readPropData(PROP_PATH, "loginTitle"), "Login Page");
 	}
 
-//	@AfterClass(enabled=true)
-//	public void closeBrowser() {	
-//		driver.quit();
-//	}
+	@AfterClass(enabled=true)
+	public void closeBrowser() {	
+		driver.quit();
+	}
 
 	
 
