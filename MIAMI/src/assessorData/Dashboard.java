@@ -14,6 +14,7 @@ public class Dashboard extends BaseTest{
 	
 //	Start Job xpaths
 	@FindBy(xpath="//*[@id='startTask']")private WebElement startJob;
+	
 	@FindBy(xpath="//*[@id='Pending']")private WebElement pendingJob;
 	@FindBy(xpath="//*[@id='Completed']")private WebElement completedJob;
 	@FindBy(xpath="//*[@id='Unabletocomplete']")private WebElement unabletoCompletedJob;
@@ -25,7 +26,7 @@ public class Dashboard extends BaseTest{
 	@FindBy(xpath="//*[@id=\"faqhead1\"]/div/button")private WebElement taskOptions;
 	
 //	Start Assment xpaths
-	@FindBy(xpath="//a[text()='Start Assessment']")private WebElement startAssesemnt;
+	@FindBy(xpath="//div[@class='assessment-box dropdown-menu show']//button[@id='StartAssessment']")private WebElement startAssesemnt;
 	@FindBy(xpath="/html/body/div/div/div[4]/div/button")private WebElement locationPopup;
 	
 //	Sidewalk Options
@@ -230,7 +231,7 @@ public class Dashboard extends BaseTest{
 //		.click().keyUp(Keys.CONTROL).build()
 //		.perform();
 	
-		ComLib.mouseOver(startAssesemnt);
+		//ComLib.mouseOver(startAssesemnt);
 		
 		startAssesemnt.click();
 		Thread.sleep(2000);
