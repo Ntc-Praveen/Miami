@@ -10,7 +10,7 @@ import masterData.Adminpayroll;
 public class AdminAddPayroll extends BaseTest{
 	
 	@Test
-	public void vehicleDelete() throws Throwable
+	public void AddPayroll() throws Throwable
 	{
 	       AdminLogin Al=new AdminLogin();
 	       Al.adminLogin();
