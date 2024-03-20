@@ -26,7 +26,7 @@ public class BaseTest implements IAutoConstants{
 			driver = new ChromeDriver(options);
 			//options.addArguments("--start-maximized");
 			options.addArguments("--remote-allow-origins=*");
-			options.addArguments("--disable - notifications");
+			//options.addArguments("--disable - notifications");
 		}
 
 		else if (browser.equalsIgnoreCase("firefox")) {
@@ -61,7 +61,7 @@ public class BaseTest implements IAutoConstants{
 				fl.readPropData(PROP_PATH, "loginTitle"), "Login Page");
 	}
 
-	@AfterClass(enabled=true)
+	@AfterClass(enabled=false)
 	public void closeBrowser() {	
 		driver.quit();
 	}
