@@ -16,7 +16,7 @@ public class AssStartingJob extends BaseTest {
 		AssessorLogin algn= new AssessorLogin();
 		algn.assessorLogin(Flib.readPropData(PROP_PATH, "UserEmailId"), Flib.readPropData(PROP_PATH, "UserPassword"));
 	
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		Dashboard A=new Dashboard();
 		A.assesorStartJob();
 		A.assesorStartTask();

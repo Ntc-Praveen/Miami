@@ -1,13 +1,12 @@
 package assessorData;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import GenericLib.BaseTest;
+import GenericLib.MyListeners;
 import GenericLib.WebDriverCommonLib;
 
 public class Dashboard extends BaseTest{
@@ -15,19 +14,20 @@ public class Dashboard extends BaseTest{
 //	Start Job xpaths
 	@FindBy(xpath="//*[@id='startTask']")private WebElement startJob;
 	
+	@FindBy(xpath="//h3[@id='totalTask1']")private WebElement totalTasksHeader;
 	@FindBy(xpath="//*[@id='Pending']")private WebElement pendingJob;
 	@FindBy(xpath="//*[@id='Completed']")private WebElement completedJob;
 	@FindBy(xpath="//*[@id='Unabletocomplete']")private WebElement unabletoCompletedJob;
 	
 //	Start Task xpaths
-	@FindBy(xpath="/html/body/main/section/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[1]/a")private WebElement taskBar;
-	@FindBy(xpath="/html/body/main/section/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[1]/a")private WebElement taskBarClick;
-	@FindBy(xpath="/html/body/main/section/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[1]/div[1]/button")private WebElement taskClickHere;
-	@FindBy(xpath="//*[@id=\"faqhead1\"]/div/button")private WebElement taskOptions;
+//	@FindBy(xpath="/html/body/main/section/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[1]/a")private WebElement taskBar;
+//	@FindBy(xpath="/html/body/main/section/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[1]/a")private WebElement taskBarClick;
+//	@FindBy(xpath="/html/body/main/section/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[1]/div[1]/button")private WebElement taskClickHere;
+	@FindBy(xpath="//div[@id='faqhead1']/div/button/img")private WebElement taskOptions;
 	
 //	Start Assment xpaths
-	@FindBy(xpath="//div[@class='assessment-box dropdown-menu show']//button[@id='StartAssessment']")private WebElement startAssesemnt;
-	@FindBy(xpath="/html/body/div/div/div[4]/div/button")private WebElement locationPopup;
+	@FindBy(xpath="//button[text()='Start Assessment']")private WebElement startAssesemnt;
+	@FindBy(xpath="//button[text()='OK']")private WebElement locationPopup;
 	
 //	Sidewalk Options
 	@FindBy(xpath="//*[@id='qCat_1']")private WebElement sideWalks;
@@ -67,6 +67,10 @@ public class Dashboard extends BaseTest{
 	public WebElement getStartJob() {
 		return startJob;
 	}
+	
+	public WebElement getTotalTasksHeader() {
+		return totalTasksHeader;
+	}
 
 	public WebElement getPendingJob() {
 		return pendingJob;
@@ -79,19 +83,8 @@ public class Dashboard extends BaseTest{
 	public WebElement getUnabletoCompletedJob() {
 		return unabletoCompletedJob;
 	}
-//	Start Task Methods
-	public WebElement gettaskBar() {
-		return taskBar;
-	}
 	
-	public WebElement gettaskBarclick() {
-		return taskBarClick;
-	}
-	
-	public WebElement gettaskClickHere(){
-		return taskClickHere;
-	}
-	
+//	Start Task Methods	
 	public WebElement gettaskOptions() {
 		return taskOptions;
 	}
@@ -173,27 +166,30 @@ public class Dashboard extends BaseTest{
 		return rescheduleTask;
 	}
 
+	
 	WebDriverCommonLib ComLib= new WebDriverCommonLib();
+	String time = ComLib.sysTimeStamp;
+	
+	MyListeners lisn = new MyListeners();
+		
 //	@priority=1
 	public void assesorStartJob() throws InterruptedException
 	{
-				
+		System.out.println(time);
+		
 		try {
 				startJob.click();
-				Thread.sleep(4000);
-
-				//ComLib.fullPageScreenshot("D:\\Screenshots");
-
-//				ComLib.fullPageScreenshot("C:\\Users\\susmi\\git\\Miami\\MIAMI\\Data");
-
 				System.out.println("Clicked on Start Job");
 				
 		}
 		catch(Exception e){
-			System.out.println("Start job button not available : ");
-			e.printStackTrace();
+			System.out.println("Start job button not available : Exception Handled");			
 		}
 	 		
+		ComLib.waitForElementVisibility(totalTasksHeader);
+		ComLib.fullPageScreenshot("D:\\Screenshots\\" + time + ".png");
+		System.out.println("Screenshot taken");
+		Thread.sleep(3000);
 		completedJob.click();
 		Thread.sleep(2000);
 		System.out.println("Clicked on Completed Job");
@@ -201,41 +197,24 @@ public class Dashboard extends BaseTest{
 		Thread.sleep(2000);
 		System.out.println("Clicked on unabletoCompleted Job");
 		pendingJob.click();
-		Thread.sleep(15000);
+		ComLib.waitForElementVisibility(totalTasksHeader);
+		//Thread.sleep(15000);
 		System.out.println("Clicked on Pending Job");
 	}
-	public void assesorStartTask() throws InterruptedException{
-		
-//		Thread.sleep(5000);
-		taskBar.click();
-		Thread.sleep(2000);
-		System.out.println("Clicked on taskBar Job");
-		
-		taskBarClick.click();
-		Thread.sleep(2000);
-		System.out.println("Clicked on taskBar Job");
-				
-		taskClickHere.click();
-		Thread.sleep(2000);
-		System.out.println("Clicked on taskBar Click Here ");
-		
-		taskOptions.click();
-		Thread.sleep(2000);
-		System.out.println("Clicked on taskBar Options");
-//		ComLib.fullPageScreenshot("C:\\Users\\susmi\\git\\Miami\\MIAMI\\Data");
-//--------------------------------------------------------------------------------------
-//		Actions actions=new Actions(driver);
-//		
-//		actions.moveToElement(taskOptions)
-//		.moveToElement(startAssesemnt).keyDown(Keys.CONTROL)
-//		.click().keyUp(Keys.CONTROL).build()
-//		.perform();
 	
-		//ComLib.mouseOver(startAssesemnt);
+	
+	public void assesorStartTask() throws InterruptedException
+	{
+				
+		taskOptions.click();
+		Thread.sleep(3000);
+		ComLib.fullPageScreenshot("D:\\Screenshots\\" + time + ".png");
+		System.out.println("Clicked on taskBar Options");
+		ComLib.waitForElementToClick(startAssesemnt);
 		
 		startAssesemnt.click();
 		Thread.sleep(2000);
-		System.out.println("Clicked on Start Assesment Click Here ");
+		System.out.println("Clicked on Start Assesment button");
 //---------------------------------------------------------------------------------------		
 		locationPopup.click();
 		Thread.sleep(2000);

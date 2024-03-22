@@ -15,14 +15,14 @@ import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
+//import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
+//import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+//import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailAttachment;
@@ -33,6 +33,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -45,11 +46,11 @@ import com.google.common.io.Files;
 public class WebDriverCommonLib {
 	
 	
-	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	LocalDateTime localDate = LocalDateTime.now();
 	public String currentSysDate = dateFormat.format(localDate);
 	
-	SimpleDateFormat formatter= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	SimpleDateFormat formatter= new SimpleDateFormat("dd_MM_yyyy HH-mm-ss");
 	Date newDate = new Date();
 	public String sysTimeStamp = formatter.format(newDate);
 	
@@ -62,6 +63,18 @@ public class WebDriverCommonLib {
 	{
 		WebDriverWait wait=new WebDriverWait(BaseTest.driver, Duration.ofSeconds(20) );
 		wait.until(ExpectedConditions.titleContains(title));
+	}
+	
+	public void waitForElementToClick(WebElement element)
+	{
+		WebDriverWait wait=new WebDriverWait(BaseTest.driver, Duration.ofSeconds(20) );
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	public void waitForElementVisibility(WebElement element)
+	{
+		WebDriverWait wait=new WebDriverWait(BaseTest.driver, Duration.ofSeconds(30) );
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
 	public void dummyText(String page) {
