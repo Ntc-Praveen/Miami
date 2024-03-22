@@ -1,5 +1,6 @@
 package assessorData;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -26,8 +27,10 @@ public class Dashboard extends BaseTest{
 	@FindBy(xpath="//div[@id='faqhead1']/div/button/img")private WebElement taskOptions;
 	
 //	Start Assment xpaths
+
 	@FindBy(xpath="//button[text()='Start Assessment']")private WebElement startAssesemnt;
 	@FindBy(xpath="//button[text()='OK']")private WebElement locationPopup;
+
 	
 //	Sidewalk Options
 	@FindBy(xpath="//*[@id='qCat_1']")private WebElement sideWalks;
@@ -202,6 +205,7 @@ public class Dashboard extends BaseTest{
 		System.out.println("Clicked on Pending Job");
 	}
 	
+
 	
 	public void assesorStartTask() throws InterruptedException
 	{
@@ -211,6 +215,15 @@ public class Dashboard extends BaseTest{
 		ComLib.fullPageScreenshot("D:\\Screenshots\\" + time + ".png");
 		System.out.println("Clicked on taskBar Options");
 		ComLib.waitForElementToClick(startAssesemnt);
+
+
+//		ComLib.mouseOver(startAssesemnt);
+		
+		ComLib.waitForElement(startAssesemnt);
+
+		//ComLib.mouseOver(startAssesemnt);
+
+
 		
 		startAssesemnt.click();
 		Thread.sleep(2000);
