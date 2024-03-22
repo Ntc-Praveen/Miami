@@ -64,9 +64,15 @@ public class WebDriverCommonLib {
 		wait.until(ExpectedConditions.titleContains(title));
 	}
 	
-	public void dummyText(String page) {
+	public void waitForElement(WebElement elementToClick)
+	{
+		WebDriverWait wait=new WebDriverWait(BaseTest.driver, Duration.ofSeconds(30) );
+		wait.until(ExpectedConditions.elementToBeClickable(elementToClick));
+	}
+	
+	public void dummyText(String element) {
 		
-		Reporter.log("Execution done till " +page+", Waiting",true);
+		Reporter.log("Execution done till " +element,true);
 	}
 	
 	public void verify(String actual, String expected, String page)

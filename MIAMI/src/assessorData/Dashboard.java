@@ -1,8 +1,7 @@
 package assessorData;
 
-import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -26,7 +25,11 @@ public class Dashboard extends BaseTest{
 	@FindBy(xpath="//*[@id=\"faqhead1\"]/div/button")private WebElement taskOptions;
 	
 //	Start Assment xpaths
+
+	//@FindBy(xpath="//div[@id='faqhead1']//button[text()='Start Assessment']")private WebElement startAssesemnt;
+
 	@FindBy(xpath="//div[@class='assessment-box dropdown-menu show']//button[@id='StartAssessment']")private WebElement startAssesemnt;
+
 	@FindBy(xpath="/html/body/div/div/div[4]/div/button")private WebElement locationPopup;
 	
 //	Sidewalk Options
@@ -231,7 +234,13 @@ public class Dashboard extends BaseTest{
 //		.click().keyUp(Keys.CONTROL).build()
 //		.perform();
 	
+
+//		ComLib.mouseOver(startAssesemnt);
+		
+		ComLib.waitForElement(startAssesemnt);
+
 		//ComLib.mouseOver(startAssesemnt);
+
 		
 		startAssesemnt.click();
 		Thread.sleep(2000);
