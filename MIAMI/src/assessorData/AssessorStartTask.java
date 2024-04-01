@@ -13,6 +13,7 @@ public class AssessorStartTask extends BaseTest {
 
 
 	@FindBy(xpath = "//*[@id='startTask']")private WebElement startJob;
+	@FindBy(xpath="/html/body/div/div/div[4]/div/button")private WebElement startJobOk;
 	@FindBy(xpath = "//h3[@id='totalTask1']")private WebElement totalTasksHeader;
 	@FindBy(xpath = "//div[@id='faqhead1']/div/button/img")	private WebElement taskOptions;
 	@FindBy(xpath = "//button[text()='Start Assessment']")private WebElement startAssesemnt;
@@ -68,7 +69,7 @@ public class AssessorStartTask extends BaseTest {
 	@FindBy(xpath="//*[@id='Q1174_15']")private WebElement organicMaterials3;
 	@FindBy(xpath="//*[@id='Q1174_16']")private WebElement organicMaterials4;
 	@FindBy(xpath="//*[@id='Q1174_17']")private WebElement organicMaterials5;
-	
+		
 //	Street Fecal Matter
 	@FindBy(xpath="//*[@id='assessments_ListFormData_2__OptionRating']")private WebElement fecalMatter;
 	@FindBy(xpath="//*[@id='Q1175_3']")private WebElement fecalMatter1;
@@ -86,6 +87,28 @@ public class AssessorStartTask extends BaseTest {
 	@FindBy(xpath="//*[@id='Q1490_7']")private WebElement sidewalkLitter7;
 	@FindBy(xpath="//*[@id='Q1490_29']")private WebElement sidewalkLitter8;
 	
+//	Sidewalk Organic Materials
+	@FindBy(xpath="//*[@id='assessments_ListFormData_4__OptionRating']")private WebElement sidewalkOrganic;
+	@FindBy(xpath="//*[@id='Q1491_13']")private WebElement sidewalkOrganic1;
+	@FindBy(xpath="//*[@id='Q1491_14']")private WebElement sidewalkOrganic2;
+	@FindBy(xpath="//*[@id='Q1491_15']")private WebElement sidewalkOrganic3;
+	@FindBy(xpath="//*[@id='Q1491_16']")private WebElement sidewalkOrganic4;
+	@FindBy(xpath="//*[@id='Q1491_17']")private WebElement sidewalkOrganic5;
+	
+//	Sidewalk Fecal Matter
+	@FindBy(xpath="//*[@id='assessments_ListFormData_5__OptionRating']")private WebElement sidewalkFecal;
+	@FindBy(xpath="//*[@id='Q1492_3']")private WebElement sidewalkFecal1;
+	@FindBy(xpath="//*[@id='Q1492_6']")private WebElement sidewalkFecal2;
+	@FindBy(xpath="//*[@id='Q1492_26']")private WebElement sidewalkFecal3;
+	
+//	Sidewalk Litter/ Garbage Cans/ Dumpsters
+	@FindBy(xpath="//*[@id='assessments_ListFormData_6__OptionRating']")private WebElement sidewalkDumpsters;
+	@FindBy(xpath="//*[@id='Q1524_3']")private WebElement sidewalkDumpsters1;
+	@FindBy(xpath="//*[@id='Q1524_4']")private WebElement sidewalkDumpsters2;
+	@FindBy(xpath="//*[@id='Q1524_8']")private WebElement sidewalkDumpsters3;
+	@FindBy(xpath="//*[@id='Q1524_9']")private WebElement sidewalkDumpsters4;
+	@FindBy(xpath="//*[@id='Q1524_11']")private WebElement sidewalkDumpsters5;
+	@FindBy(xpath="//*[@id='Q1524_12']")private WebElement sidewalkDumpsters6;
 	
 	
 // Save
@@ -94,9 +117,6 @@ public class AssessorStartTask extends BaseTest {
 	@FindBy(xpath="//*[@id='btnSubmit']")WebElement submit;
 
 
-	
-	
-	
 	public AssessorStartTask() {
 		PageFactory.initElements(BaseTest.driver, this);
 	}
@@ -104,6 +124,9 @@ public class AssessorStartTask extends BaseTest {
 //	Start Job Methods
 	public WebElement getStartJob() {
 		return startJob;
+	}
+	public WebElement getstartJobOk() {
+		return startJobOk;
 	}
 
 	public WebElement getTotalTasksHeader() {
@@ -244,6 +267,124 @@ public class AssessorStartTask extends BaseTest {
 	public WebElement getlitterComments7(){
 		return litterComments7;
 	}	
+//	organic Materials
+	public WebElement getorganicMaterials() {
+		return organicMaterials;
+	}
+	public WebElement getorganicMaterials1() {
+		return organicMaterials1;
+	}
+	public WebElement getorganicMaterials2() {
+		return organicMaterials2;
+	}
+	public WebElement getorganicMaterials3() {
+		return organicMaterials3;
+	}
+	public WebElement getorganicMaterials4() {
+		return organicMaterials4;
+	}
+	public WebElement getorganicMaterials5() {
+		return organicMaterials5;
+	}
+//	Street Fecal Matter
+	public WebElement getfecalMatter() {
+		return fecalMatter;
+	}
+	public WebElement getfecalMatter1() {
+		return fecalMatter1;
+	}
+	public WebElement getfecalMatter2() {
+		return fecalMatter2;
+	}
+	public WebElement getfecalMatter3() {
+		return fecalMatter3;
+	}
+//	Sidewalk Litter/Trash
+	public WebElement getsidewalkLitterrating() {
+		return sidewalkLitterrating;
+	}
+	public WebElement getsidewalkLitter1() {
+		return sidewalkLitter1;
+	}
+	public WebElement getsidewalkLitter2() {
+		return sidewalkLitter2;
+	}
+	public WebElement getsidewalkLitter3() {
+		return sidewalkLitter3;
+	}
+	public WebElement getsidewalkLitter4() {
+		return sidewalkLitter4;
+	}
+	public WebElement getsidewalkLitter5() {
+		return sidewalkLitter5;
+	}
+	public WebElement getsidewalkLitter6() {
+		return sidewalkLitter6;
+	}
+	public WebElement getsidewalkLitter7() {
+		return sidewalkLitter7;
+	}
+	public WebElement getsidewalkLitter8() {
+		return sidewalkLitter8;
+	}
+//	Sidewalk Organic Materials
+	public WebElement getsidewalkOrganic() {
+		return sidewalkOrganic;
+	}
+	public WebElement getsidewalkOrganic1() {
+		return sidewalkOrganic1;
+	}
+	public WebElement getsidewalkOrganic2() {
+		return sidewalkOrganic2;
+	}
+	public WebElement getsidewalkOrganic3() {
+		return sidewalkOrganic3;
+	}
+	public WebElement getsidewalkOrganic4() {
+		return sidewalkOrganic4;
+	}
+	public WebElement getsidewalkOrganic5() {
+		return sidewalkOrganic5;
+	}
+//	Sidewalk Fecal Matter
+	public WebElement getsidewalkFecal() {
+		return sidewalkFecal;
+	}
+	public WebElement getsidewalkFecal1() {
+		return sidewalkFecal1;
+	}
+	public WebElement getsidewalkFecal2() {
+		return sidewalkFecal2;
+	}
+	public WebElement getsidewalkFecal3() {
+		return sidewalkFecal3;
+	}
+//	Sidewalk Litter/ Garbage Cans/ Dumpsters
+	public WebElement getsidewalkDumpsters() {
+		return sidewalkDumpsters;
+	}
+	public WebElement getsidewalkDumpsters1() {
+		return sidewalkDumpsters1;
+	}
+	public WebElement getsidewalkDumpsters2() {
+		return sidewalkDumpsters2;
+	}
+	public WebElement getsidewalkDumpsters3() {
+		return sidewalkDumpsters3;
+	}
+	public WebElement getsidewalkDumpsters4() {
+		return sidewalkDumpsters4;
+	}
+	public WebElement getsidewalkDumpsters5() {
+		return sidewalkDumpsters5;
+	}
+	public WebElement getsidewalkDumpsters6() {
+		return sidewalkDumpsters6;
+	}
+	
+
+	
+	
 	//	save
 	public WebElement getsave() {
 		return save;
@@ -271,6 +412,7 @@ public class AssessorStartTask extends BaseTest {
 		try {
 			startJob.click();
 			System.out.println("Clicked on Start Job");
+			startJobOk.click();
 
 		} catch (Exception e) {
 			System.out.println("Start job button not available : Exception Handled");
@@ -446,6 +588,165 @@ public class AssessorStartTask extends BaseTest {
 			System.out.println("Exception Handled");	
 			}
 		
+		try {
+//			Street Litter/Trash
+			
+			Select litter=new Select(organicMaterials);
+			litter.selectByValue("1");
+			Thread.sleep(1000);
+			System.out.println("Selected: organicMaterials");
+			organicMaterials1.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on organicMaterials1");
+			organicMaterials2.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on organicMaterials2");
+			organicMaterials3.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on organicMaterials3");
+			organicMaterials4.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on organicMaterials4");
+			organicMaterials5.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on organicMaterials5");
+					
+			}
+			catch(Exception e) {
+			System.out.println("Exception Handled");	
+			}
+		try {
+//			Street Fecal Matter
+			
+			Select litter=new Select(fecalMatter);
+			litter.selectByValue("1");
+			Thread.sleep(1000);
+			System.out.println("Selected: fecalMatter");
+			fecalMatter1.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on fecalMatter1");
+			fecalMatter2.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on fecalMatter2");
+			fecalMatter3.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on fecalMatter3");
+			}
+			catch(Exception e) {
+			System.out.println("Exception Handled");	
+			}
+		try {
+//			Sidewalk Litter/Trash
+			
+			Select litter=new Select(sidewalkLitterrating);
+			litter.selectByValue("1");
+			Thread.sleep(1000);
+			System.out.println("Selected: sidewalkLitterrating");
+			sidewalkLitter1.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter1");
+			sidewalkLitter2.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter2");
+			sidewalkLitter3.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter3");
+			sidewalkLitter4.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter4");
+			sidewalkLitter5.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter5");
+			sidewalkLitter6.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter6");
+			sidewalkLitter7.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter7");
+			sidewalkLitter8.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkLitter8");
+			}
+			catch(Exception e) {
+			System.out.println("Exception Handled");	
+			}
+		
+		try {
+//			Sidewalk Organic Materials
+			
+			Select sidewalkO=new Select(sidewalkOrganic);
+			sidewalkO.selectByValue("1");
+			Thread.sleep(1000);
+			System.out.println("Selected: sidewalkOrganic");
+			sidewalkOrganic1.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkOrganic1");
+			sidewalkOrganic2.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkOrganic2");
+			sidewalkOrganic3.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkOrganic3");
+			sidewalkOrganic4.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkOrganic4");
+			sidewalkOrganic5.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkOrganic5");
+			}
+			catch(Exception e) {
+			System.out.println("Exception Handled");	
+			}
+		try {
+//			Sidewalk Fecal Matter
+			
+			Select sidewalkF=new Select(sidewalkFecal);
+			sidewalkF.selectByValue("1");
+			Thread.sleep(1000);
+			System.out.println("Selected: sidewalkFecal");
+			sidewalkFecal1.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkFecal1");
+			sidewalkFecal2.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkFecal2");
+			sidewalkFecal3.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkFecal3");
+			}
+			catch(Exception e) {
+			System.out.println("Exception Handled");	
+			}
+		try {
+//			Sidewalk Litter/ Garbage Cans/ Dumpsters
+			
+			Select sidewalkD=new Select(sidewalkDumpsters);
+			sidewalkD.selectByValue("1");
+			Thread.sleep(1000);
+			System.out.println("Selected: sidewalkDumpsters");
+			sidewalkDumpsters1.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkDumpsters1");
+			sidewalkDumpsters2.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkDumpsters2");
+			sidewalkDumpsters3.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkDumpsters3");
+			sidewalkDumpsters4.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkDumpsters4");
+			sidewalkDumpsters5.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkDumpsters5");
+			sidewalkDumpsters6.click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on sidewalkDumpsters6");
+					
+			}
+			catch(Exception e) {
+			System.out.println("Exception Handled");	
+			}
 		
 		save.click();
 		System.out.println("Clicked on Save");

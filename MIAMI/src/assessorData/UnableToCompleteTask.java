@@ -13,6 +13,7 @@ public class UnableToCompleteTask extends BaseTest {
 
 //	Start Job xpaths
 	@FindBy(xpath = "//*[@id='startTask']")	private WebElement startJob;
+	@FindBy(xpath="/html/body/div/div/div[4]/div/button")private WebElement startJobOk;
 	@FindBy(xpath = "//div[@id='faqhead1']/div/button/img")	private WebElement taskOptions;
 
 //	Unable to complete xpaths
@@ -29,7 +30,9 @@ public class UnableToCompleteTask extends BaseTest {
 	public WebElement getStartJob() {
 		return startJob;
 	}
-
+	public WebElement getstartJobOk() {
+		return startJobOk;
+	}
 //	Start Task Methods	
 	public WebElement gettaskOptions() {
 		return taskOptions;
@@ -68,6 +71,7 @@ public class UnableToCompleteTask extends BaseTest {
 			startJob.click();
 			System.out.println("Clicked on Start Job");
 			Thread.sleep(3000);
+			startJobOk.click();
 
 		} catch (Exception e) {
 			System.out.println("Start job button not available : Exception Handled");

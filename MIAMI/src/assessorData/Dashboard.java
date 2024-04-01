@@ -11,6 +11,7 @@ public class Dashboard extends BaseTest {
 
 //	Start Job xpaths
 	@FindBy(xpath = "//*[@id='startTask']")private WebElement startJob;
+	@FindBy(xpath="/html/body/div/div/div[4]/div/button")private WebElement startJobOk;
 	@FindBy(xpath = "//h3[@id='totalTask1']")private WebElement totalTasksHeader;
 	@FindBy(xpath = "//*[@id='Pending']")private WebElement pendingJob;
 	@FindBy(xpath = "//*[@id='Completed']")private WebElement completedJob;
@@ -22,6 +23,9 @@ public class Dashboard extends BaseTest {
 	}
 	public WebElement getStartJob() {
 		return startJob;
+	}
+	public WebElement getstartJobOk() {
+		return startJobOk;
 	}
 	public WebElement getTotalTasksHeader() {
 		return totalTasksHeader;
@@ -48,6 +52,7 @@ public class Dashboard extends BaseTest {
 		try {
 			startJob.click();
 			System.out.println("Clicked on Start Job");
+			startJobOk.click();
 
 		} catch (Exception e) {
 			System.out.println("Start job button not available : Exception Handled");
