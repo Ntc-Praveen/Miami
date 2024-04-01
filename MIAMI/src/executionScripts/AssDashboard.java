@@ -7,10 +7,10 @@ import GenericLib.FileLib;
 import assessorData.Dashboard;
 import logins.AssessorLogin;
 
-public class AssStartingJob extends BaseTest {
+public class AssDashboard extends BaseTest {
 	
 	@Test
-	public void StartingJob() throws Throwable
+	public void AssDashoardstrat() throws Throwable
 	{
 		FileLib Flib=new FileLib();
 		AssessorLogin algn= new AssessorLogin();
@@ -18,14 +18,8 @@ public class AssStartingJob extends BaseTest {
 	
 		Thread.sleep(2000);
 		Dashboard A=new Dashboard();
-		A.assesorStartJob();
-		A.assesorStartTask();
-		A.assessorStartAssesemnt();
-		A.assessorUnableToCompleteTask();
+		A.AssessorDashboard();
 		
-
 	}
-	
-		
 
 }
