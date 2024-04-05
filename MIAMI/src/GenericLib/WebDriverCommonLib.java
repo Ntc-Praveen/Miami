@@ -66,10 +66,10 @@ public class WebDriverCommonLib {
 	}
 	
 
-	public void waitForElementToClick(WebElement element)
+	public void waitForElementToClick(WebElement elementToClick)
 	{
 		WebDriverWait wait=new WebDriverWait(BaseTest.driver, Duration.ofSeconds(20) );
-		wait.until(ExpectedConditions.elementToBeClickable(element));
+		wait.until(ExpectedConditions.elementToBeClickable(elementToClick));
 	}
 	
 	public void waitForElementVisibility(WebElement element)
@@ -78,11 +78,6 @@ public class WebDriverCommonLib {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
-	public void waitForElement(WebElement elementToClick)
-	{
-		WebDriverWait wait=new WebDriverWait(BaseTest.driver, Duration.ofSeconds(30) );
-		wait.until(ExpectedConditions.elementToBeClickable(elementToClick));
-	}
 	
 	public void dummyText(String element) 
 	{
