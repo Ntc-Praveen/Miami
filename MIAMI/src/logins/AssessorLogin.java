@@ -1,8 +1,5 @@
 package logins;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
